@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Listado 6-79: Definiendo valores iniciales para el objeto</title>
+</head>
+<body>
+  <script>
+    function MiObjeto(nombreinicial, edadinicial){
+      this.nombre = nombreinicial;
+      this.edad = edadinicial;
+      this.mostrarnombre = function(){
+        alert(this.nombre);
+      };
+      this.cambiarnombre = function(nombrenuevo){
+        this.nombre = nombrenuevo;
+      };
+    }
+    var empleado = new MiObjeto("Roberto", 55);
+    empleado.mostrarnombre();  // "Roberto"
+  </script>
+</body>
+</html>

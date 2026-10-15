@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Listado 6-119: Ordenando los valores en orden numérico</title>
+</head>
+<body>
+  <script>
+    var lista = [12, 5, 80, 34];
+    lista.sort(function(valor1, valor2) {
+      return valor1 - valor2;  // el libro usa "valor1 > valor2", que los navegadores modernos ya no ordenan bien
+    });
+    alert(lista);  // 5,12,34,80
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Listado 6-75: Enviando valores iniciales al constructor</title>
+</head>
+<body>
+  <script>
+    var constructor = function(nombreinicial) {
+      var obj = {
+        nombre: nombreinicial,
+        edad: 30,
+     mostrarnombre: function() {
+      alert(this.nombre);
+        },
+     cambiarnombre: function(nombrenuevo) {
+      this.nombre = nombrenuevo;
+        }
+      };
+      return obj;
+    };
+    var empleado = constructor("Juan");
+    empleado.mostrarnombre();  // "Juan"
+  </script>
+</body>
+</html>

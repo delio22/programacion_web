@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Listado 6-64: Codificando una cadena de caracteres para incluirla en una URL</title>
+</head>
+<body>
+  <script>
+    var nombre = "Juan Perez";
+    var codificado = encodeURIComponent(nombre);
+    var miURL = "http://www.ejemplo.com/contacto.html?nombre=" +
+    codificado;
+    alert(miURL);
+  </script>
+</body>
+</html>

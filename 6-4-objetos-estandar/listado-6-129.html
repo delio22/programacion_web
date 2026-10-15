@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Listado 6-129: Calculando un intervalo en días</title>
+</head>
+<body>
+  <script>
+    var hoy = new Date(2017, 0, 5);
+    var futuro = new Date(2017, 0, 20);
+    var intervalo = futuro - hoy;
+    var dias = intervalo / (24 * 60 * 60 * 1000);
+    alert(dias + " días");  // "15 dias"
+  </script>
+</body>
+</html>

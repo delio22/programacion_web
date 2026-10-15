@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Listado 6-78: Creando objetos con el operador new</title>
+</head>
+<body>
+  <script>
+    function MiObjeto() {
+      this.nombre = "Juan";
+      this.edad = 30;
+      this.mostrarnombre = function(){
+        alert(this.nombre);
+      };
+      this.cambiarnombre = function(nombrenuevo){
+        this.nombre = nombrenuevo;
+      };
+    }
+    var empleado = new MiObjeto();
+    empleado.mostrarnombre();  // "Juan"
+  </script>
+</body>
+</html>

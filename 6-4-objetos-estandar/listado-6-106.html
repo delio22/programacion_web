@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Listado 6-106: Devolviendo una condición para filtrar los elementos</title>
+</head>
+<body>
+  <script>
+    var lista = [12, 5, 80, 34];
+    var listanueva = lista.filter(function(valor) {
+      return valor <= 50;
+    });
+    alert(listanueva);  // 12, 5, 34
+  </script>
+</body>
+</html>

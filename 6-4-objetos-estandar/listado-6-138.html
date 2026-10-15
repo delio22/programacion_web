@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript</title>
+  <script>
+    var segundos = 0;
+ var contador = setInterval(realizar, 1000);
+    function realizar() {
+  segundos++;
+    }
+    function cancelar() {
+   clearInterval(contador);
+  alert("Total: " + segundos + " segundos");
+    }
+  </script>
+</head>
+<body>
+  <section>
+    <h1>Sitio Web</h1>
+    <button type="button" onclick="cancelar()">Presione Aquí</button>
+  </section>
+</body>
+</html>

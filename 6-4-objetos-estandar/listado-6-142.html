@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript</title>
+  <script>
+    function iniciar() {
+      var lista = document.getElementsByTagName("p");
+      var elemento = lista[0];
+      alert("El id es: " + elemento.id);
+    }
+  </script>
+</head>
+<body onload="iniciar()">
+  <section>
+    <h1>Sitio Web</h1>
+    <p id="subtitulo">El mejor sitio web!</p>
+  </section>
+</body>
+</html>

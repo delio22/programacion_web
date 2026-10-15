@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript</title>
+  <style>
+    .supercolor {
+      background: #000000;
+    }
+  </style>
+  <script>
+    function cambiarcolor() {
+      var elemento = document.getElementById("subtitulo");
+      elemento.classList.toggle("supercolor");
+    }
+  </script>
+</head>
+<body>
+  <section>
+    <h1>Sitio Web</h1>
+    <p id="subtitulo" class="supercolor" onclick="cambiarcolor()">El
+mejor sitio web!</p>
+  </section>
+</body>
+</html>

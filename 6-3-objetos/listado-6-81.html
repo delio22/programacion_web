@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Listado 6-81: Agregando un nuevo método al prototipo</title>
+</head>
+<body>
+  <script>
+    var miobjeto = {
+      nombre: "Juan",
+      edad: 30,
+      mostrarnombre: function(){
+        alert(this.nombre);
+      },
+
+    cambiarnombre: function(nombrenuevo){
+        this.nombre = nombrenuevo;
+      }
+    };
+    var empleado = Object.create(miobjeto);
+    empleado.edad = 24;
+
+    miobjeto.mostraredad = function(){
+      alert(this.edad);
+    };
+    empleado.mostraredad();  // 24
+  </script>
+</body>
+</html>

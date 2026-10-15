@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Listado 6-91: Procesando una cadena de caracteres</title>
+</head>
+<body>
+  <script>
+    var texto = "Hola Mundo";
+    var mensaje = "";
+    var anterior = "";
+    for (var f = 0; f < texto.length; f++) {
+      if (mensaje != "") {
+        anterior = texto[f - 1];
+        if (anterior != " " && texto[f] != " ") {
+      mensaje += ".";
+        }
+      }
+      mensaje += texto[f];
+    }
+    alert(mensaje);  // "H.o.l.a M.u.n.d.o"
+  </script>
+</body>
+</html>

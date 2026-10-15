@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript</title>
+  <style>
+    #subtitulo {
+      width: 300px;
+  padding: 20px;
+  border: 1px solid #FF0000;
+    }
+  </style>
+  <script>
+    function iniciar() {
+  var elemento = document.getElementById("subtitulo");
+   var ancho = elemento.clientWidth;
+ ancho = ancho + 100;
+   elemento.style.width = ancho + "px";
+    }
+  </script>
+</head>
+<body onload="iniciar()">
+  <section>
+    <h1>Sitio Web</h1>
+    <p id="subtitulo">El mejor sitio web!</p>
+  </section>
+</body>
+</html>

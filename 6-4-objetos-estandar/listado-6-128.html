@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Listado 6-128: Calculando un intervalo en segundos</title>
+</head>
+<body>
+  <script>
+    var hoy = new Date(2017, 0, 5);
+    var futuro = new Date(2017, 0, 20);
+    var intervalo = futuro - hoy;
+    var segundos = intervalo / 1000;
+    alert(segundos + " segundos");  // "1296000 segundos"
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Listado 6-52: Declarando variables globales y locales</title>
+</head>
+<body>
+  <script>
+    var variableGlobal = 5;
+    function mifuncion(){
+      var variableLocal = "El valor es ";
+      alert(variableLocal + variableGlobal);  // "El valor es 5"
+    }
+    mifuncion();
+    alert(variableLocal);
+  </script>
+</body>
+</html>

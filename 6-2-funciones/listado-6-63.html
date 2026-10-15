@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Listado 6-63: Convirtiendo una cadena de caracteres en un número</title>
+</head>
+<body>
+  <script>
+    var mivalor = "32";
+    if (isNaN(mivalor)) {
+      alert(mivalor + " no es un número");
+    } else {
+      var numero = parseInt(mivalor);
+      numero = numero * 10;
+      alert("El número es: " + numero);  // "El número es 320"
+    }
+  </script>
+</body>
+</html>

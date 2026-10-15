@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript</title>
+  <script>
+    function agregarelemento() {
+      var elemento = document.querySelector("section");
+      var elementonuevo = document.createElement("p");
+      elementonuevo.innerHTML = "Este es un elemento nuevo";
+      elemento.appendChild(elementonuevo);
+    }
+  </script>
+</head>
+<body>
+  <section>
+    <h1>Sitio Web</h1>
+    <button type="button" onclick="agregarelemento()">Agregar
+Elemento</button>
+  </section>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Listado 6-107: Evaluando los valores de un array</title>
+</head>
+<body>
+  <script>
+    var lista = [12, 5, 80, 34];
+    var valido = lista.every(function(valor) {
+      return valor <= 100;
+    });
+    if (valido) {
+      alert("Los valores no son mayores que 100");
+    }
+  </script>
+</body>
+</html>
