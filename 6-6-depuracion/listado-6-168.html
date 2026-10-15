@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript</title>
+  <script>
+    function mostrarerror(evento){
+      console.log('Error: ' + evento.error);
+      console.log('Mensaje: ' + evento.message);
+      console.log('Línea: ' + evento.lineno);
+      console.log('Columna: ' + evento.colno);
+      console.log('URL: ' + evento.filename);
+    }
+    window.addEventListener('error', mostrarerror);
+    funcionfalsa();
+  </script>
+</head>
+<body>
+  <section>
+    <h1>Sitio Web</h1>
+  </section>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript</title>
+  <script>
+    var existencia = 5;
+    function vendido(cantidad) {
+      if (cantidad > existencia) {
+        var error = {
+          name: "ErrorExistencia",
+          message: "Sin Existencia"
+        };
+        throw error;
+      } else {
+        existencia = existencia - cantidad;
+      }
+    }
+    try {
+      vendido(8);
+    } catch(error) {
+      console.log(error.message);
+    }
+  </script>
+</head>
+<body>
+  <section>
+    <h1>Sitio Web</h1>
+  </section>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript</title>
+  <style>
+    #contenedor {
+      width: 500px;
+      height: 40px;
+      padding: 10px;
+      border: 1px solid #999999;
+    }
+    #barraprogreso {
+      width: 0px;
+      height: 40px;
+      background-color: #000099;
+    }
+  </style>
+  <script>
+    function iniciar() {
+      var elemento = document.getElementById("contenedor");
+      elemento.addEventListener("mousemove", moverbarra);
+    }
+    function moverbarra(evento) {
+      var anchobarra = evento.offsetX - 10;
+      if (anchobarra < 0) {
+        anchobarra = 0;
+      } else if (anchobarra > 500) {
+        anchobarra = 500;
+      }
+      var elemento = document.getElementById("barraprogreso");
+      elemento.style.width = anchobarra + "px";
+    }
+    window.addEventListener("load", iniciar);
+  </script>
+</head>
+<body>
+  <section>
+    <h1>Nivel</h1>
+    <div id="contenedor">
+      <div id="barraprogreso"></div>
+    </div>
+  </section>
+</body>
+</html>

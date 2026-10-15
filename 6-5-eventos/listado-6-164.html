@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript</title>
+  <style>
+    section {
+      text-align: center;
+    }
+    #bloque {
+      display: inline-block;
+      width: 150px;
+      height: 150px;
+      margin-top: 100px;
+      background-color: #990000;
+    }
+  </style>
+  <script>
+    function detectartecla(evento) {
+      var elemento = document.getElementById("bloque");
+      var codigo = evento.key;
+      switch (codigo) {
+        case "0":
+          elemento.style.backgroundColor = "#990000";
+          break;
+        case "1":
+          elemento.style.backgroundColor = "#009900";
+          break;
+        case "2":
+          elemento.style.backgroundColor = "#000099";
+          break;
+        case "3":
+          elemento.style.backgroundColor = "#999900";
+          break;
+        case "4":
+          elemento.style.backgroundColor = "#009999";
+          break;
+        case "5":
+          elemento.style.backgroundColor = "#990099";
+          break;
+      }
+    }
+    window.addEventListener("keydown", detectartecla);
+  </script>
+</head>
+<body>
+  <section>
+    <div id="bloque"></div>
+  </section>
+</body>
+</html>

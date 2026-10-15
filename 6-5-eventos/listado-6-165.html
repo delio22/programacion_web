@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript</title>
+  <style>
+    section {
+      text-align: center;
+    }
+    #bloque {
+      display: inline-block;
+      width: 150px;
+      height: 150px;
+      margin-top: 100px;
+      background-color: #990000;
+    }
+  </style>
+  <script>
+    function detectartecla(evento) {
+      var elemento = document.getElementById("bloque");
+      var ancho = elemento.clientWidth;
+      var codigo = evento.key;
+      switch (codigo) {
+        case "ArrowUp":
+          ancho += 10;
+          break;
+        case "ArrowDown":
+          ancho -= 10;
+          break;
+      }
+      if (ancho < 50) {
+        ancho = 50;
+      }
+      elemento.style.width = ancho + "px";
+      elemento.style.height = ancho + "px";
+    }
+    window.addEventListener("keydown", detectartecla);
+  </script>
+</head>
+<body>
+  <section>
+    <div id="bloque"></div>
+  </section>
+</body>
+</html>
