@@ -1,0 +1,30 @@
+/* Estilos personalizados del laboratorio (el resto viene de Tailwind) */
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+::-webkit-scrollbar-thumb {
+  background: #3e3e3e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.code-block {
+  background: #141414;
+  border: 1px solid #2e2e2e;
+}
+.badge-react {
+  background-color: rgba(97, 218, 251, 0.12);
+  color: #61dafb;
+  border: 1px solid rgba(97, 218, 251, 0.3);
+}
+.badge-js {
+  background-color: rgba(247, 223, 30, 0.12);
+  color: #f7df1e;
+  border: 1px solid rgba(247, 223, 30, 0.3);
+}

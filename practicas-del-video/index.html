@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript para Aprender React | Tutorial Interactivo</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            faztDark: '#1a1a1a',
+            faztSurface: '#242424',
+            faztBorder: '#383838',
+            faztAccent: '#3b82f6',
+            reactBlue: '#61dafb',
+            jsYellow: '#f7df1e',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Fira Code', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#121212] text-gray-200 font-sans min-h-screen flex flex-col antialiased selection:bg-reactBlue/30 selection:text-reactBlue">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-[#1c1c1c]/90 backdrop-blur-md border-b border-faztBorder px-4 sm:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4 shadow-lg">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-yellow-500 to-blue-500 flex items-center justify-center font-bold text-black text-xl shadow-md">
+        JS
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="font-bold text-base sm:text-lg text-white leading-tight">JavaScript para Aprender React</h1>
+          <span class="badge-react px-2 py-0.5 rounded text-xs font-semibold">Fazt Code</span>
+        </div>
+        <p class="text-xs text-gray-400">Laboratorio interactivo y código fuente ejecutable</p>
+      </div>
+    </div>
+
+    <a href="ejemplo/index.html" class="flex items-center gap-2 px-4 py-1.5 rounded-lg text-xs sm:text-sm font-medium bg-faztAccent hover:bg-blue-600 text-white shadow-sm transition">
+      <i data-lucide="folder-code" class="w-4 h-4"></i>
+      <span>Ver proyecto de ejemplo</span>
+    </a>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
+
+    <!-- View: INTERACTIVE LAB -->
+    <div id="viewLab" class="space-y-6">
+      <!-- Overview Banner -->
+      <div class="bg-gradient-to-r from-faztSurface via-[#282828] to-faztSurface border border-faztBorder rounded-2xl p-5 sm:p-6 shadow-md relative overflow-hidden">
+        <div class="absolute -right-12 -top-12 w-48 h-48 bg-reactBlue/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-3xl">
+          <span class="badge-js px-2.5 py-1 rounded-md text-xs font-semibold inline-block mb-2">Fundamento Esencial</span>
+          <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">¿Por qué estos conceptos son la base de React?</h2>
+          <p class="text-sm text-gray-300 leading-relaxed">
+            En el video, Fazt explica que React no inventa una sintaxis rara aparte de JSX: React <strong>es JavaScript puro</strong> con programación funcional. Si dominas las funciones flecha, el destructuring, los métodos inmutables (<code class="text-reactBlue">.map</code>, <code class="text-reactBlue">.filter</code>) y la asincronía, aprender React es pan comido.
+          </p>
+        </div>
+      </div>
+
+      <!-- Grid of Modules -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <!-- 1. Funciones & Higher Order Functions -->
+        <section class="bg-faztSurface border border-faztBorder rounded-2xl p-5 flex flex-col justify-between hover:border-gray-500/50 transition shadow-sm">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-faztBorder/80 mb-4">
+              <div class="flex items-center gap-2.5">
+                <span class="p-2 bg-blue-500/10 text-reactBlue rounded-lg"><i data-lucide="square-function" class="w-5 h-5"></i></span>
+                <div>
+                  <h3 class="font-bold text-white text-base">1. Funciones & Arrow Functions</h3>
+                  <p class="text-xs text-gray-400">Funciones que retornan funciones y retorno implícito</p>
+                </div>
+              </div>
+              <span class="text-xs bg-black/40 text-gray-400 px-2 py-1 rounded border border-faztBorder font-mono">03:42</span>
+            </div>
+
+            <div class="space-y-3 mb-4">
+              <p class="text-xs text-gray-300">
+                Fazt muestra cómo una función puede devolver otra función y cómo las <em>Arrow Functions</em> permiten escribir componentes y cálculos concisos:
+              </p>
+              <pre class="code-block rounded-xl p-3 text-xs font-mono text-blue-300 overflow-x-auto leading-relaxed"><code>// Arrow function con retorno implícito
+const add = (x = 0, y = 0) => x + y;
+
+// Función que retorna otra función (base de HOC / Currying)
+function buildGreeting(greet) {
+  return (name) => `${greet}, ${name}!`;
+}</code></pre>
+            </div>
+
+            <!-- Interactive Demo Controls -->
+            <div class="bg-[#181818] p-4 rounded-xl border border-faztBorder space-y-3">
+              <label class="block text-xs font-semibold text-gray-300">Prueba la función sumadora y saludador dinámico:</label>
+              <div class="grid grid-cols-2 gap-2">
+                <input id="inputNumX" type="number" value="15" class="bg-[#2a2a2a] border border-faztBorder rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-reactBlue" placeholder="Valor X">
+                <input id="inputNumY" type="number" value="27" class="bg-[#2a2a2a] border border-faztBorder rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-reactBlue" placeholder="Valor Y">
+              </div>
+              <div class="flex gap-2">
+                <input id="inputGreetName" type="text" value="Developer" class="flex-1 bg-[#2a2a2a] border border-faztBorder rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-reactBlue" placeholder="Tu nombre">
+                <button onclick="testFunctionsDemo()" class="px-4 py-2 bg-faztAccent hover:bg-blue-600 active:scale-95 text-white rounded-lg text-xs font-semibold transition">
+                  Ejecutar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Output Console -->
+          <div class="mt-4 pt-3 border-t border-faztBorder/60">
+            <div class="text-[11px] font-mono text-gray-400 mb-1 flex items-center justify-between">
+              <span>Resultado en consola:</span>
+              <span id="funcTag" class="text-emerald-400">Listo</span>
+            </div>
+            <div id="funcConsole" class="bg-black/60 rounded-lg p-3 text-xs font-mono text-emerald-300 min-h-[52px] flex items-center border border-faztBorder/50">
+              Presiona "Ejecutar" para ver el resultado de la función.
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. Objetos & Destructuring -->
+        <section class="bg-faztSurface border border-faztBorder rounded-2xl p-5 flex flex-col justify-between hover:border-gray-500/50 transition shadow-sm">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-faztBorder/80 mb-4">
+              <div class="flex items-center gap-2.5">
+                <span class="p-2 bg-yellow-500/10 text-yellow-400 rounded-lg"><i data-lucide="boxes" class="w-5 h-5"></i></span>
+                <div>
+                  <h3 class="font-bold text-white text-base">2. Objetos & Destructuring</h3>
+                  <p class="text-xs text-gray-400">Extracción de props en parámetros como en React</p>
+                </div>
+              </div>
+              <span class="text-xs bg-black/40 text-gray-400 px-2 py-1 rounded border border-faztBorder font-mono">12:34</span>
+            </div>
+
+            <div class="space-y-3 mb-4">
+              <p class="text-xs text-gray-300">
+                En React se utiliza destructuring en prácticamente cada componente para extraer los <code class="text-reactBlue">props</code> directamente en los parámetros:
+              </p>
+              <pre class="code-block rounded-xl p-3 text-xs font-mono text-yellow-200 overflow-x-auto leading-relaxed"><code>const user = { name: 'Fazt', age: 30, role: 'FullStack Tutor' };
+
+// Destructuring directo en el parámetro de la función:
+function printInfo({ name, role }) {
+  return `&lt;h3&gt;${name}&lt;/h3&gt;&lt;p&gt;${role}&lt;/p&gt;`;
+}</code></pre>
+            </div>
+
+            <!-- Interactive Demo Controls -->
+            <div class="bg-[#181818] p-4 rounded-xl border border-faztBorder space-y-3">
+              <label class="block text-xs font-semibold text-gray-300">Modifica los datos del objeto Usuario:</label>
+              <div class="grid grid-cols-2 gap-2">
+                <input id="destructName" type="text" value="Fazt" class="bg-[#2a2a2a] border border-faztBorder rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-yellow-400" placeholder="Nombre">
+                <input id="destructAge" type="number" value="30" class="bg-[#2a2a2a] border border-faztBorder rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-yellow-400" placeholder="Edad">
+              </div>
+              <input id="destructRole" type="text" value="FullStack Instructor" class="w-full bg-[#2a2a2a] border border-faztBorder rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-yellow-400" placeholder="Rol / Cargo">
+
+              <button onclick="testDestructuringDemo()" class="w-full py-2 bg-yellow-500 hover:bg-yellow-400 text-black rounded-lg text-xs font-bold transition active:scale-95">
+                Desestructurar Parámetros & Generar Card
+              </button>
+            </div>
+          </div>
+
+          <!-- Output Console -->
+          <div class="mt-4 pt-3 border-t border-faztBorder/60">
+            <div class="text-[11px] font-mono text-gray-400 mb-1">HTML Generado por Destructuring:</div>
+            <div id="destructOutput" class="bg-black/60 rounded-lg p-3 text-xs border border-faztBorder/50 min-h-[52px]">
+              <div class="text-gray-400 italic">Haz clic en el botón superior para generar.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Manipulación del DOM, Eventos & Template Literals -->
+        <section class="bg-faztSurface border border-faztBorder rounded-2xl p-5 flex flex-col justify-between hover:border-gray-500/50 transition shadow-sm">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-faztBorder/80 mb-4">
+              <div class="flex items-center gap-2.5">
+                <span class="p-2 bg-purple-500/10 text-purple-400 rounded-lg"><i data-lucide="mouse-pointer-click" class="w-5 h-5"></i></span>
+                <div>
+                  <h3 class="font-bold text-white text-base">3. DOM, Eventos & Template Strings</h3>
+                  <p class="text-xs text-gray-400">El botón interactivo con operador ternario y estilos</p>
+                </div>
+              </div>
+              <span class="text-xs bg-black/40 text-gray-400 px-2 py-1 rounded border border-faztBorder font-mono">19:27 / 45:25</span>
+            </div>
+
+            <div class="space-y-3 mb-4">
+              <p class="text-xs text-gray-300">
+                Fazt crea un elemento <code class="text-purple-300">button</code> con JS, le agrega un escuchador de eventos y cambia estilos dinámicamente con comillas invertidas e inyección ternaria:
+              </p>
+              <pre class="code-block rounded-xl p-3 text-xs font-mono text-purple-300 overflow-x-auto leading-relaxed"><code>const isAuthorized = true;
+button.innerText = 'Click me';
+button.style = `background: ${isAuthorized ? '#22c55e' : '#ef4444'}`;
+button.addEventListener('click', () => { /* reaccionar al click */ });</code></pre>
+            </div>
+
+            <!-- Dynamic DOM Sandbox -->
+            <div class="bg-[#181818] p-4 rounded-xl border border-faztBorder space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-semibold text-gray-300">Estado de Autorización (Ternario):</span>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" id="authToggle" onchange="updateDynamicButton()" class="sr-only peer" checked>
+                  <div class="w-9 h-5 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-500"></div>
+                  <span id="authLabel" class="ml-2 text-xs font-mono text-emerald-400">Autorizado (True)</span>
+                </label>
+              </div>
+
+              <!-- Button Spawn Container -->
+              <div class="p-4 bg-black/40 rounded-xl border border-dashed border-faztBorder flex flex-col items-center justify-center gap-3">
+                <span class="text-[11px] text-gray-400">Botón creado e inyectado con JavaScript:</span>
+                <div id="domButtonSlot"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notification Feedback Box -->
+          <div class="mt-4 pt-3 border-t border-faztBorder/60">
+            <div class="text-[11px] font-mono text-gray-400 mb-1">Evento disparado:</div>
+            <div id="domEventOutput" class="bg-black/60 rounded-lg p-2.5 text-xs font-mono text-purple-300 min-h-[38px] flex items-center border border-faztBorder/50">
+              Esperando clic en el botón...
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Métodos de Arreglos: Map, Filter, Find & Spread -->
+        <section class="bg-faztSurface border border-faztBorder rounded-2xl p-5 flex flex-col justify-between hover:border-gray-500/50 transition shadow-sm">
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-faztBorder/80 mb-4">
+              <div class="flex items-center gap-2.5">
+                <span class="p-2 bg-emerald-500/10 text-emerald-400 rounded-lg"><i data-lucide="layers" class="w-5 h-5"></i></span>
+                <div>
+                  <h3 class="font-bold text-white text-base">4. Arreglos Inmutables & Spread</h3>
+                  <p class="text-xs text-gray-400">Map, Filter, Find y el operador Spread (...)</p>
+                </div>
+              </div>
+              <span class="text-xs bg-black/40 text-gray-400 px-2 py-1 rounded border border-faztBorder font-mono">49:57 / 59:23</span>
+            </div>
+
+            <p class="text-xs text-gray-300 mb-3">
+              En React nunca modificas el arreglo original (mutabilidad); creas nuevas copias transformadas usando métodos funcionales:
+            </p>
+
+            <!-- Methods Playground -->
+            <div class="bg-[#181818] p-3.5 rounded-xl border border-faztBorder space-y-3">
+              <div class="text-xs text-gray-400 flex items-center justify-between">
+                <span>Arreglo Base: <strong class="text-white font-mono">['Fazt', 'Marcos', 'Joe', 'Ryan']</strong></span>
+                <span class="text-[11px] text-gray-400">Inmutable</span>
+              </div>
+
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <button onclick="runArrayOp('map')" class="px-2.5 py-1.5 bg-[#252525] hover:bg-[#333] border border-faztBorder rounded-lg text-xs font-mono text-emerald-400 hover:border-emerald-500/50 transition">
+                  .map()
+                </button>
+                <button onclick="runArrayOp('filter')" class="px-2.5 py-1.5 bg-[#252525] hover:bg-[#333] border border-faztBorder rounded-lg text-xs font-mono text-yellow-400 hover:border-yellow-500/50 transition">
+                  .filter()
+                </button>
+                <button onclick="runArrayOp('find')" class="px-2.5 py-1.5 bg-[#252525] hover:bg-[#333] border border-faztBorder rounded-lg text-xs font-mono text-blue-400 hover:border-blue-500/50 transition">
+                  .find()
+                </button>
+                <button onclick="runArrayOp('spread')" class="px-2.5 py-1.5 bg-[#252525] hover:bg-[#333] border border-faztBorder rounded-lg text-xs font-mono text-pink-400 hover:border-pink-500/50 transition">
+                  [...spread]
+                </button>
+              </div>
+
+              <div class="text-[11px] font-mono text-gray-400 bg-black/40 p-2 rounded border border-faztBorder/40" id="arrayExplanation">
+                Selecciona una operación para ejecutar el método exacto explicado en el video.
+              </div>
+            </div>
+          </div>
+
+          <!-- Output Console -->
+          <div class="mt-4 pt-3 border-t border-faztBorder/60">
+            <div class="text-[11px] font-mono text-gray-400 mb-1">Arreglo resultante:</div>
+            <div id="arrayOutput" class="bg-black/60 rounded-lg p-3 text-xs font-mono text-emerald-300 min-h-[52px] border border-faztBorder/50 overflow-x-auto whitespace-pre">
+              ['Fazt', 'Marcos', 'Joe', 'Ryan']
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. Optional Chaining (?.) -->
+        <section class="bg-faztSurface border border-faztBorder rounded-2xl p-5 flex flex-col justify-between hover:border-gray-500/50 transition shadow-sm lg:col-span-2">
+          <div class="flex flex-col md:flex-row md:items-center justify-between pb-3 border-b border-faztBorder/80 mb-4 gap-2">
+            <div class="flex items-center gap-2.5">
+              <span class="p-2 bg-pink-500/10 text-pink-400 rounded-lg"><i data-lucide="shield-alert" class="w-5 h-5"></i></span>
+              <div>
+                <h3 class="font-bold text-white text-base">5. Optional Chaining (<code class="text-pink-400 font-mono">?.</code>)</h3>
+                <p class="text-xs text-gray-400">Prevenir errores tipo "Cannot read properties of undefined"</p>
+              </div>
+            </div>
+            <span class="text-xs bg-black/40 text-gray-400 px-2 py-1 rounded border border-faztBorder font-mono w-max">01:10:59</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+            <div class="space-y-3">
+              <p class="text-xs text-gray-300">
+                Fazt resalta que cuando consumes datos de una API que aún no han cargado o tienen propiedades nulas anidadas, acceder directamente rompe la app. Con el operador <code class="text-pink-400">person?.location?.city</code>, retorna <code class="text-gray-400">undefined</code> de forma segura.
+              </p>
+              <div class="flex gap-2">
+                <button onclick="testOptionalChaining(true)" class="flex-1 py-2 bg-emerald-600/30 hover:bg-emerald-600/50 border border-emerald-500/40 text-emerald-300 text-xs font-medium rounded-lg transition">
+                  Consultar objeto Completo
+                </button>
+                <button onclick="testOptionalChaining(false)" class="flex-1 py-2 bg-rose-600/30 hover:bg-rose-600/50 border border-rose-500/40 text-rose-300 text-xs font-medium rounded-lg transition">
+                  Consultar objeto Incompleto
+                </button>
+              </div>
+            </div>
+
+            <div class="bg-black/60 rounded-xl p-3 border border-faztBorder/60 space-y-2">
+              <div class="text-[11px] font-mono text-gray-400 flex justify-between">
+                <span>Evaluación de código seguro:</span>
+                <span id="optChainBadge" class="text-xs text-gray-400">Esperando...</span>
+              </div>
+              <div id="optChainOutput" class="text-xs font-mono text-pink-300 min-h-[46px] flex items-center">
+                Haz clic en los botones para probar el acceso seguro con ?.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. Proyecto Final de Fazt: Asincronía con Fetch y Async/Await -->
+        <section class="bg-faztSurface border border-faztBorder rounded-2xl p-5 flex flex-col justify-between shadow-lg lg:col-span-2">
+          <div>
+            <div class="flex flex-wrap items-center justify-between pb-3 border-b border-faztBorder/80 mb-4 gap-2">
+              <div class="flex items-center gap-2.5">
+                <span class="p-2 bg-reactBlue/10 text-reactBlue rounded-lg"><i data-lucide="cloud-lightning" class="w-5 h-5"></i></span>
+                <div>
+                  <h3 class="font-bold text-white text-base">6. Consumo de API en Vivo (JSONPlaceholder)</h3>
+                  <p class="text-xs text-gray-400">El ejercicio cumbre del video: Fetch con Promesas y Async/Await</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs bg-black/40 text-gray-400 px-2 py-1 rounded border border-faztBorder font-mono">01:11:38 / 01:19:47</span>
+                <span class="text-xs bg-emerald-500/10 text-emerald-400 px-2.5 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1">
+                  API pública gratuita
+                </span>
+              </div>
+            </div>
+
+            <p class="text-xs text-gray-300 mb-4">
+              Fazt hace una petición HTTP a <code class="text-reactBlue">https://jsonplaceholder.typicode.com/posts</code>, primero utilizando <code class="text-yellow-400">fetch().then()</code> y luego refactorizando elegantemente a una función <code class="text-reactBlue">async/await</code>. Los posts se iteran con <code class="text-emerald-400">forEach</code> o <code class="text-emerald-400">map</code> y se renderizan directamente en la página:
+            </p>
+
+            <!-- Control Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-3 bg-[#181818] p-3.5 rounded-xl border border-faztBorder mb-4">
+              <div class="flex items-center gap-2">
+                <button id="btnFetchAsync" onclick="loadPosts('async')" class="px-4 py-2 bg-faztAccent hover:bg-blue-600 active:scale-95 text-white font-medium text-xs rounded-lg transition flex items-center gap-1.5 shadow">
+                  <i data-lucide="zap" class="w-4 h-4"></i>
+                  <span>Cargar con Async/Await</span>
+                </button>
+                <button id="btnFetchPromise" onclick="loadPosts('promise')" class="px-3.5 py-2 bg-[#2a2a2a] hover:bg-[#363636] active:scale-95 text-gray-200 text-xs rounded-lg transition border border-faztBorder">
+                  Probar con .then()
+                </button>
+                <button onclick="clearPosts()" class="px-3 py-2 bg-transparent hover:bg-red-500/10 text-red-400 hover:text-red-300 text-xs rounded-lg transition">
+                  Limpiar
+                </button>
+              </div>
+
+              <!-- Search filter input -->
+              <div class="flex items-center gap-2 w-full sm:w-auto">
+                <div class="relative w-full sm:w-64">
+                  <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-gray-400"></i>
+                  <input id="postFilterInput" oninput="filterLoadedPosts()" type="text" placeholder="Filtrar posts en tiempo real..." class="w-full bg-[#242424] border border-faztBorder rounded-lg pl-8 pr-3 py-1.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-reactBlue">
+                </div>
+                <div id="postsCounterBadge" class="text-xs font-mono text-gray-400 bg-black/40 px-2.5 py-1.5 rounded-lg border border-faztBorder whitespace-nowrap">
+                  0 posts
+                </div>
+              </div>
+            </div>
+
+            <!-- Posts Render Container -->
+            <div id="postsContainer" class="max-h-[380px] overflow-y-auto space-y-2.5 pr-1">
+              <div class="text-center py-12 text-gray-500 border border-dashed border-faztBorder rounded-xl">
+                <i data-lucide="inbox" class="w-8 h-8 mx-auto mb-2 opacity-40"></i>
+                <p class="text-xs">No hay posts cargados aún.</p>
+                <p class="text-[11px] text-gray-500 mt-1">Presiona "Cargar con Async/Await" para consultar la API en vivo.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-auto border-t border-faztBorder bg-[#161616] py-4 px-6 text-center text-xs text-gray-500">
+    Basado en el tutorial <em>"Javascript para Aprender React"</em> por <strong>Fazt Code</strong>. Construido para consulta, práctica y aprendizaje interactivo.
+  </footer>
+
+  <!-- Application Logic -->
+  <script src="app.js" defer></script>
+</body>
+</html>
